@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList } from 'react-native';
+import { View, Text, TextInput, Button, FlatList, Alert } from 'react-native';
 
 export default function RealizarPedido() {
   const [nombre, setNombre] = useState('');
@@ -21,7 +21,7 @@ export default function RealizarPedido() {
           </View>
         )}
       />
-      
+      <Button title='Confirmar Compra' onPress={() => Alert.alert('Compra realizada', `Pedido confirmado por ${nombre}`)} />
     </View>
   );
 }
