@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, FlatList } from 'react-native';
+import { usePedidos } from '../context/PedidoContext';
 
 export default function Eliminados() {
-  const [eliminados, setEliminados] = useState([
-    { id: '1', nombre: 'Pasta con Atún', precio: '95.00' }
-  ]);
+  const { eliminados } = usePedidos();
 
   return (
     <View>
@@ -14,6 +13,7 @@ export default function Eliminados() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <Text>{item.nombre} - ${item.precio}</Text>}
       />
+      <Text>Total eliminados: {eliminados.length}</Text>
     </View>
   );
 }

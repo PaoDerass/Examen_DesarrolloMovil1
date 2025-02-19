@@ -1,29 +1,29 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-type Pedido = {
-  id: number;
-  plato: string;
+type Plato = {
+  id: string;
+  nombre: string;
+  precio: string;
 };
 
 type PedidoContextType = {
-  pedidos: Pedido[];
-  eliminados: Pedido[];
-  agregarPedido: (plato: string) => void;
-  eliminarPedido: (id: number) => void;
+  pedidos: Plato[];
+  eliminados: Plato[];
+  agregarPedido: (plato: Plato) => void;
+  eliminarPedido: (id: string) => void;
 };
 
 const PedidoContext = createContext<PedidoContextType | undefined>(undefined);
 
 export const PedidoProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [pedidos, setPedidos] = useState<Pedido[]>([]);
-  const [eliminados, setEliminados] = useState<Pedido[]>([]);
+  const [pedidos, setPedidos] = useState<Plato[]>([]);
+  const [eliminados, setEliminados] = useState<Plato[]>([]);
 
-  const agregarPedido = (plato: string) => {
-    const nuevoPedido: Pedido = { id: Date.now(), plato };
-    setPedidos((prevPedidos) => [...prevPedidos, nuevoPedido]);
+  const agregarPedido = (plato: Plato) => {
+    setPedidos((prevPedidos) => [...prevPedidos, plato]);
   };
 
-  const eliminarPedido = (id: number) => {
+  const eliminarPedido = (id: string) => {
     setPedidos((prevPedidos) => {
       const pedidoAEliminar = prevPedidos.find((pedido) => pedido.id === id);
       if (pedidoAEliminar) {

@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Inicio from '../pantallas/Inicio';
 import RealizarPedido from '../pantallas/RealizarPedido';
 import Eliminados from '../pantallas/Eliminados';
+import { PedidoProvider } from '../context/PedidoContext';
 
 const Tab = createBottomTabNavigator();
 
