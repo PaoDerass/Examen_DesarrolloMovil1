@@ -1,4 +1,10 @@
 {
-  "name": "restaurante_app",
-  "displayName": "restaurante_app"
+  "expo": {
+    "name": "restaurante_app",
+    "slug": "restaurante_app",
+    "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
+    "sdkVersion": "48.0.0",
+    "main": "node_modules/expo/AppEntry.js"
+  }
 }
